@@ -1,5 +1,5 @@
 const express = require("express");
-const { createTodo, updateTodo } = require("./types");
+const { createTodoSchema, updateTodoSchema } = require("./types");
 const { todo } = require("./db");
 const cors = require("cors");
 const app = express();
@@ -9,7 +9,7 @@ app.use(cors());
 
 app.post("/todo", async function(req, res) {
     const createPayload = req.body;
-    const parsedPayload = createTodo.safeParse(createPayload);
+    const parsedPayload = createTodoSchema.safeParse(createPayload);
 
     if (!parsedPayload.success) {
         res.status(411).json({
@@ -40,7 +40,7 @@ app.get("/todos", async function(req, res) {
 
 app.put("/completed", async function(req, res) {
     const updatePayload = req.body;
-    const parsedPayload = updateTodo.safeParse(updatePayload);
+    const parsedPayload = updateTodoSchema.safeParse(updatePayload);
     if (!parsedPayload.success) {
         res.status(411).json({
             msg: "You sent the wrong inputs",
