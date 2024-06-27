@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import { CreateTodo } from './components/CreateTodo';
-import { Todos } from './components/Todo';
+import { GetTodos } from './components/Todo';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -15,10 +15,27 @@ function App() {
       .catch(error => console.error('Error fetching todos:', error));
   }, []); 
 
+  const markAsCompleted = (id) => {
+    fetch("http://localhost:3000/completed", {
+      method: "PUT",
+      body: JSON.stringify({ id }),
+      headers: {
+        "Content-type": "application/json"
+      }
+    })
+      .then(async function(res) {
+        const json = await res.json();
+        setTodos(todos.map(todo => todo._id === id ? { ...todo, completed: true } : todo));
+      })
+      .catch(error => {
+        console.error('Error marking todo as completed:', error);
+      });
+  };
+
   return (
-    <div>
+    <div className="app-container">
       <CreateTodo />
-      <Todos todos={todos} />
+      <GetTodos todos={todos} markAsCompleted={markAsCompleted} />
     </div>
   );
 }

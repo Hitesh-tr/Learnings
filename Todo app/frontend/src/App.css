@@ -1,0 +1,61 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .todo-form {
+    background-color: #ccffff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 300px;
+  }
+  
+  .input {
+    background-color: #ffffe6;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .button {
+    background-color: #ccebff;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .todo-list {
+    width: 300px;
+  }
+  
+  .todo-item {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .todo-item h1, .todo-item h2 {
+    margin: 0;
+  }
+  
+  .todo-item .completed h1, .todo-item .completed h2 {
+    text-decoration: line-through;
+  }
+  
+  .todo-item input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
