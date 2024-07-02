@@ -9,7 +9,7 @@ function App() {
   }
 
   return (
-    <>
+    <div>
       <button onClick={updateTitle}>Update the Title</button>
       <Header title={title}></Header>
 
@@ -17,7 +17,7 @@ function App() {
       <Header title="Hi"></Header>
       <Header title="Hi"></Header>
       <Header title="Hi"></Header>
-    </>
+    </div>
   )
 }
 
